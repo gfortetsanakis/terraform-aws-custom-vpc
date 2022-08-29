@@ -1,4 +1,4 @@
-# AWS networking module
+# AWS custom VPC module
 
 This module creates a custom VPC in AWS consisting of configurable public and private subnets. Public subnets communicate to the Internet via an Internet gateway and appropriate routing tables are configured for routing traffic within the VPC both for the public and private subnets.
 

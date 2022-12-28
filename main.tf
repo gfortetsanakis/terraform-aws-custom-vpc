@@ -20,9 +20,9 @@ resource "aws_subnet" "vpc_public_subnet" {
   count                   = length(var.public_subnets)
   vpc_id                  = aws_vpc.custom_vpc.id
   cidr_block              = var.public_subnets[count.index]["cidr_block"]
-  map_public_ip_on_launch = true
-  availability_zone       = var.public_subnets[count.index]["availability_zone"]
   map_public_ip_on_launch = var.map_public_ip_on_launch
+  availability_zone       = var.public_subnets[count.index]["availability_zone"]
+
 
   tags = {
     Name = "custom-vpc-public-subnet-${count.index + 1}"

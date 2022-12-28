@@ -8,5 +8,11 @@ variable "public_subnets" {
   description = "A list with the cidrs of the public subnets."    
 }
 variable "private_subnets" {
-  description = "A list with the cidrs of the private subnets."    
+  description = "A list with the cidrs of the private subnets."
+  default = []    
+}
+
+variable "create_s3_gateway" {
+  description = "Boolean variable indicating whether a VPC gateway endpoint will be created for accessing S3."
+  default = true
 }

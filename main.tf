@@ -61,6 +61,7 @@ resource "aws_subnet" "vpc_private_subnet" {
 }
 
 resource "aws_default_route_table" "private_rt" {
+  count                  = length(var.private_subnets) > 0 ? 1 : 0
   default_route_table_id = aws_vpc.custom_vpc.default_route_table_id
 
   tags = {
@@ -69,9 +70,10 @@ resource "aws_default_route_table" "private_rt" {
 }
 
 resource "aws_vpc_endpoint" "s3_gateway_endpoint" {
+  count           = length(var.private_subnets) > 0 && var.create_s3_gateway ? 1 : 0
   vpc_id          = aws_vpc.custom_vpc.id
   service_name    = "com.amazonaws.${var.aws_region}.s3"
-  route_table_ids = [aws_default_route_table.private_rt.id]
+  route_table_ids = [aws_default_route_table.private_rt[count.index].id]
 
   tags = {
     Name = "s3-gateway-endpoint"

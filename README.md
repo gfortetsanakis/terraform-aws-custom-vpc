@@ -6,12 +6,14 @@ To reduce the costs of communication with the AWS S3 service from private subnet
 
 The input parameters of the module are described in detail in the following table:
 
-| Parameter        | Description                                       |
-| ---------------- | ------------------------------------------------- |
-| vpc_cidr         | The cidr block of the VPC                         |
-| aws_region       | The AWS region at which the VPC will be deployed  |
-| public_subnets   | A list with the cidrs of the public subnets       |
-| private_subnets  | A list with the cidrs of the private subnets      |
+| Parameter         | Type     | Description                                                                                 |
+| ----------------- | -------- | ------------------------------------------------------------------------------------------- |
+| vpc_cidr          | Required | The cidr block of the VPC                                                                   |
+| aws_region        | Required | The AWS region at which the VPC will be deployed                                            |
+| public_subnets    | Required | A list with the cidrs of the public subnets                                                 |
+| private_subnets   | Optional | A list with the cidrs of the private subnets                                                |
+| create_s3_gateway | Optional | Boolean variable indicating whether a VPC gateway endpoint will be created for accessing S3 |
+
 
 The output parameters are the following:
 

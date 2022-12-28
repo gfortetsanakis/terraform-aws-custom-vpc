@@ -22,6 +22,7 @@ resource "aws_subnet" "vpc_public_subnet" {
   cidr_block              = var.public_subnets[count.index]["cidr_block"]
   map_public_ip_on_launch = true
   availability_zone       = var.public_subnets[count.index]["availability_zone"]
+  map_public_ip_on_launch = var.map_public_ip_on_launch
 
   tags = {
     Name = "custom-vpc-public-subnet-${count.index + 1}"

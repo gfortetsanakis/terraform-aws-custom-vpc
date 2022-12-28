@@ -16,3 +16,8 @@ variable "create_s3_gateway" {
   description = "Boolean variable indicating whether a VPC gateway endpoint will be created for accessing S3."
   default = true
 }
+
+variable "map_public_ip_on_launch" {
+  description = "Boolean variable indicating whether a public IP is automatically assinged to EC2 instances created in public subnets."
+  default = true
+}
